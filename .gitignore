@@ -1,0 +1,13 @@
+Heddes_proefschrift*
+*.log
+*.aux
+*.bcf
+*.out
+*.run.xml
+*synctex.gz
+
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.toc

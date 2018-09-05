@@ -1,0 +1,148 @@
+% Papierformaat
+\setlength{\textwidth}{12.3cm}
+\setlength{\textheight}{18.5cm}
+\setlength{\oddsidemargin}{-1in}
+\setlength{\evensidemargin}{-1in}
+\setlength{\topmargin}{-1in}
+\special{papersize=17cm,24cm}
+\addtolength{\oddsidemargin}{2.5cm}
+\addtolength{\evensidemargin}{2.2cm}
+\addtolength{\topmargin}{1.8cm}
+\addtolength{\headheight}{1.7pt}
+
+
+
+% Nieuwe Operatoren
+\DeclareMathOperator{\cotanh}{cotanh}
+\DeclareMathOperator{\cotan}{cotan}
+\DeclareMathOperator{\atan}{atan}
+\DeclareMathOperator{\atanh}{atanh}
+\DeclareMathOperator{\trace}{tr}
+\DeclareMathOperator{\var}{var}
+\newcommand{\rotation}{\mathop{\vec{\nabla} \times}}
+\newcommand{\grad}{\mathop{\vec{\nabla}}}
+\newcommand{\divergence}{\mathop{\vec{\nabla} \cdot}}
+\DeclareMathOperator{\tprod}{\wedge}
+\DeclareMathOperator{\tcont}{:}
+\DeclareMathOperator{\lapl}{\nabla^2}
+\DeclareMathOperator{\repart}{\tt Re}
+\DeclareMathOperator{\impart}{\tt Im}
+\DeclareMathOperator{\Ci}{Ci}
+\DeclareMathOperator{\Si}{Si}
+\DeclareMathOperator{\erf}{erf}
+\DeclareMathOperator{\diag}{diag}
+
+
+% Symbolen
+%\font\dsrom=dsrom10 scaled 1100
+\newcommand{\unity}{\hbox{\dsrom 1}}
+
+
+% Newcommands
+\newcommand{\ie}{\textit{i.e. }}
+\newcommand{\eg}{\textit{e.g. }}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\kB}{k_{\mbox{\tiny B}}}
+\newcommand{\ko}{\kappa_{\mbox{\scriptsize o}}}
+\newcommand{\kd}{\kappa_{\mbox{\scriptsize d}}}
+\newcommand{\kG}{\kappa_{\mbox{\tiny G}}}
+\newcommand{\diff}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\mS}{\mathcal{S}}
+\newcommand{\U}{\mathcal{U}}
+\newcommand{\R}{\mathds{R}}
+\newcommand{\dd}{\,\mathrm{d}}
+\newcommand{\Lo}{L_{\mbox{\scriptsize o}}}
+\newcommand{\Ld}{L_{\mbox{\scriptsize d}}}
+\newcommand{\E}{\mathcal{E}}
+\newcommand{\Ec}{\mathcal E_{\mbox{curv}}}
+\newcommand{\Et}{\mathcal E_{\mbox{tens}}}
+\newcommand{\Ea}{\mathcal E_{\mbox{area}}}
+\newcommand{\Ee}{\mathcal E_{\mbox{el}}}
+\newcommand{\Eg}{\mathcal E_{\mbox{\scriptsize Gauss}}}
+\newcommand{\ECH}{\mathcal E_{\mbox{\scriptsize CH}}}
+\newcommand{\new}[1]{{#1}}
+\newcommand{\newtoo}[1]{{#1}}
+\newcommand{\abstractsec}[1]{\emph{#1}}
+\newcommand{\un}[1]{\mathbf{#1} }
+\newcommand{\rd}{{\rm d}}
+\newcommand{\sub}[1]{_{\mbox{\scriptsize #1}}}
+\newcommand{\TMC}{T_{\mbox{\scriptsize MC}}}
+\newcommand{\so}{\sigma_{\mbox{\scriptsize o}}}
+\newcommand{\sd}{\sigma_{\mbox{\scriptsize d}}}
+\newcommand{\figurecap}{}
+
+\newcommand{\figref}[1]{\ref{#1}}
+
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\textfraction}{0.1}
+\renewcommand{\floatpagefraction}{0.75}
+
+
+
+%\newcommand{\beq}{\begin{equation}}
+%\newcommand{\eeq}{\end{equation}}
+%\newcommand{\lf}{{\cal L}_{\text f}}
+%\newcommand{\vp}{\varphi}
+%\newcommand{\q}{\,}
+%\newcommand{\qq}{\qquad}
+%\newcommand{\vr}{\vec r}
+%\newcommand{\vk}{\vec k}
+%\newcommand{\ud}{{\rm d}}
+%\newcommand{\arso}{{a_R^{\text{so}}}}
+%\newcommand{\arsi}{{a_R^{\text{si}}}}
+%\newcommand{\also}{{a_L^{\text{so}}}}
+%\newcommand{\alsi}{{a_L^{\text{si}}}}
+%\newcommand{\arst}{{a_R^{\text{st}}}}
+%\newcommand{\alst}{{a_L^{\text{st}}}}
+%\newcommand{\asto}{{\vec a^{\text{p}}}}
+%\newcommand{\aso}{{\vec a^{\text{so}}}}
+%\newcommand{\asi}{{\vec a^{\text{si}}}}
+%\newcommand{\xso}{x_{\text{so}}}
+%\newcommand{\xsi}{x_{\text{si}}}
+%\newcommand{\vso}{v_{\text{so}}}
+%\newcommand{\vsi}{v_{\text{si}}}
+%\newcommand{\lone}{\hat{\cal L}_1}
+%\newcommand{\hone}{\hat{\cal H}_1}
+%\newcommand{\mm}{\mbox{\bf {\tt M}}}
+%\newcommand{\nt}{\vec{\tt N}_{\tt t}}
+%\newcommand{\nb}{\vec{\tt N}_{\tt b}}
+%\newcommand{\vn}{\vec{\tt N}}
+%\newcommand{\vnd}{\vec{\tt N}^{\dagger}}
+%\newcommand{\zso}{\vec{\tt N}_{\text{so}}}
+%\newcommand{\zsi}{\vec{\tt N}_{\text{si}}}
+
+%Theorems
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{corollary}[theorem]{Corollary}
+
+
+
+% Differential operator
+\makeatletter
+\providecommand*{\diff}%
+{\@ifnextchar^{\DIfF}{\DIfF^{}}}
+\def\DIfF^#1{%
+\mathop{\mathrm{\mathstrut d}}%
+\nolimits^{#1}\gobblespace}
+\def\gobblespace{%
+\futurelet\diffarg\opspace}
+\def\opspace{%
+\let\DiffSpace\!%
+\ifx\diffarg(%
+\let\DiffSpace\relax
+\else
+\ifx\diffarg[%
+\let\DiffSpace\relax
+\else
+\ifx\diffarg\{%
+\let\DiffSpace\relax
+\fi\fi\fi\DiffSpace}
+\providecommand*{\deriv}[3][]{%
+\frac{\diff^{#1}#2}{\diff #3^{#1}}}
+\providecommand*{\pderiv}[3][]{%
+\frac{\partial^{#1}#2}%
+{\partial #3^{#1}}}
+
+\newenvironment{abstract}{\subsection*{abstract}}{}
+%\newcommand{\path}{./}

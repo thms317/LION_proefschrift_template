@@ -1,0 +1,94 @@
+% Important: Compile in three steps
+%  1.  pdfLaTeX; BASH: 'pdflatex proefschrift.tex'
+%  2. use biber; BASH:  "biber proefschrift.bcf"
+%  3.  pdfLaTeX again; BASH: 'pdflatex proefschrift.tex'
+
+\documentclass[11pt]{book}
+
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage[skip=10pt,textfont={footnotesize,sl},labelsep=newline,labelfont=bf]{caption}
+\usepackage{color}
+\usepackage{csquotes}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{layout}
+\usepackage{mathtools}
+\usepackage{multicol}
+\usepackage{setspace} % spacing control package, does not alter spacing with figures
+\usepackage{subcaption}
+\usepackage{subscript}
+\usepackage{textcomp}
+\usepackage{textgreek}
+\usepackage{upgreek}
+\usepackage{verbatim}
+\usepackage{epstopdf}
+\usepackage{hyperref} % keep last, otherwise footnotes may link to title page
+\usepackage[citereset=chapter, sorting=none, url=false, backend=biber]{biblatex} 
+
+
+
+\addbibresource{bibliography.bib} 
+
+\usepackage[dutch,english]{babel}
+
+%   General parameters, for ALL pages:
+\renewcommand{\topfraction}{1}    % max fraction of floats at top
+\renewcommand{\bottomfraction}{1} % max fraction of floats at bottom
+%   Parameters for TEXT pages (not float pages):
+\setcounter{topnumber}{2}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}     % 2 may work better
+\setcounter{dbltopnumber}{2}    % for 2-column pages
+\renewcommand{\dbltopfraction}{0.9} % fit big float above 2-col. text
+\renewcommand{\textfraction}{0.0}  % allow minimal text w. figs
+%   Parameters for FLOAT pages (not text pages):
+\renewcommand{\floatpagefraction}{0.7}  % require fuller float pages
+% N.B.: floatpagefraction MUST be less than topfraction !!
+\renewcommand{\dblfloatpagefraction}{0.95}   % require fuller float pages
+
+\input{styling/definities.tex}
+\input{styling/afbreken.tex}
+
+\begin{document}
+
+%\frontmatter
+\pagestyle{plain}
+\input{frontmatter/title.tex}
+
+\input{styling/pagestyle.tex}
+\setcounter{tocdepth}{2}
+
+\tableofcontents
+
+\mainmatter
+\input{C1_introduction/C1_introduction.tex}
+\input{C2_topic1/C2_topic1.tex}
+\input{C3_topic2/C3_topic2.tex}
+\input{C4_topic3/C4_topic3.tex}
+
+
+%\addcontentsline{toc}{chapter}{\vspace{-0.1cm}Bibliography}
+
+
+%\backmatter \addcontentsline{toc}{chapter}{\vspace{-0.1cm}Samenvatting}
+%\input{backmatter/samenvatting_final.tex}
+%\addcontentsline{toc}{chapter}{\vspace{-0.1cm}Publications}
+%\input{backmatter/publications.tex}
+%\addcontentsline{toc}{chapter}{Curriculum Vitae}
+%\input{backmatter/cv_final.tex}
+
+%\addcontentsline{toc}{chapter}{Acknowledgements}
+%\input{backmatter/thanks.tex}
+
+\clearpage
+\thispagestyle{empty}
+\cleardoublepage
+
+\end{document}

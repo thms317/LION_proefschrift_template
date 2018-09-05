@@ -1,0 +1,80 @@
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\newcommand{\schaptermark}[1]{\markboth{#1}{#1}\thispagestyle{empty}}
+
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\lhead[\fancyplain{}{\bfseries\thepage}]%
+      {\fancyplain{}{\bfseries\rightmark}}
+\rhead[\fancyplain{}{\bfseries\leftmark}]%
+      {\fancyplain{}{\bfseries\thepage}}
+\cfoot[\fancyplain{}{}]{\fancyplain{}{}}%
+
+% heading of chapters
+\renewcommand{\chapter}{\if@openright\cleardoublepage
+                        \else\clearpage\fi
+                    \thispagestyle{empty}%
+                    \global\@topnum\z@
+                    \@afterindentfalse
+                    \secdef\Chapter\sChapter}
+%% Numbered chapters
+\def\Chapter[#1]#2{\ifnum \c@secnumdepth >\m@ne
+                         \refstepcounter{chapter}%
+                         \addcontentsline{toc}{chapter}%
+                              {\protect\numberline{\thechapter}#1}%
+                   \else
+                      \addcontentsline{toc}{chapter}{#1}%
+                   \fi
+                   \chaptermark{#1}%
+                   \addtocontents{lof}{\protect\addvspace{10\p@}}%
+                   \addtocontents{lot}{\protect\addvspace{10\p@}}%
+                   \makeChapterhead{#2}%
+                   \@afterheading
+                   }
+
+\def\makeChapterhead#1{%
+  \vspace*{40\p@}%
+  {\parindent \z@ \raggedright \reset@font
+    \interlinepenalty\@M
+    \ifnum \c@secnumdepth >\m@ne
+        \flushleft \LARGE \scshape C\,h\,a\,p\,t\,e\,r{\Huge{\, \thechapter}}
+\rule{13cm}{.2mm}\begin{center}{\huge{\textsc{#1}}}\end{center}\rule[.5cm]{13cm}{.5mm}
+        \par\nobreak
+        \vskip 60\p@
+    \fi
+  }}%% Unnumbered chapters
+
+\def\sChapter#1{%\addcontentsline{toc}{chapter}{#1}
+                \schaptermark{#1}%
+                \makesChapterhead{#1}%
+                \@afterheading
+                }
+\def\makesChapterhead#1{%
+  \vspace*{40\p@}%
+  {\parindent \z@ \raggedright \reset@font
+    \interlinepenalty\@M
+\rule{12cm}{.2mm}\begin{center}{\huge{\textsc{#1}}}\end{center}\rule[.3cm]{12cm}{.5mm}
+    \par\nobreak
+    \vskip 20\p@
+  }}
+\def\chapintrostyle#1{
+  %\begin{flushleft} 
+  {\sf #1} %\end{flushleft}
+}
+
+%old
+%\numberwithin{equation}{section}
+%\renewcommand{\theequation}{\thesection.\arabic{equation}}
+\numberwithin{equation}{chapter}
+\renewcommand{\theequation}{\thechapter.\arabic{equation}}
+
+
+\renewcommand\appendix{\par
+  \setcounter{section}{0}%
+  \setcounter{subsection}{0}%
+  \gdef\thesection{\thechapter.\@Alph\c@section}}
+% Every time a new chapter starts, we reset \thesection
+\let\oldchaptermark=\chaptermark
+\def\chaptermark#1{%
+   \gdef\thesection{\thechapter.\@arabic\c@section}%
+   \oldchaptermark{#1}}
+\endinput
