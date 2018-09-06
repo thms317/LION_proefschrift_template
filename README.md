@@ -7,7 +7,7 @@ The template is based on Hedde's PhD thesis, which in turn was based on Stefan's
 Download this repository and construct a PDF file as minimum working example (MWE).
 
 ### Downloading the repo
-Click the download button at the top right of  or in shell run:
+Download as ZIP at the top right of [https://github.com/patrickvdb/LION_proefschrift_template]() and unpack or, alternatively, in shell run:
 
 ```bash
 cd ~
